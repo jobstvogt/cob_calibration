@@ -9,18 +9,6 @@ dh_chains:
             
  
 rectified_cams:
-    left:
-        baseline_shift: 0.0
-        f_shift: 0.0
-        cx_shift: 0.0
-        cy_shift: 0.0
-        cov: {u: 0.125, v: 0.125}
-    right:
-        baseline_shift: 0.0
-        f_shift: 0.0
-        cx_shift: 0.0
-        cy_shift: 0.0
-        cov: {u: 0.125, v: 0.125}
     kinect_rgb:
         baseline_shift: 0.0
         f_shift: 0.0

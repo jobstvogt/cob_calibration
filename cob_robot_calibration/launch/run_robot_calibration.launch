@@ -22,7 +22,7 @@
           <rosparam>
             sensors:
             - arm_chain
-            - left
+            - kinect_rgb
           </rosparam>
           <param name="output_filename" type="string" value="result_step_1" />
         </group>
@@ -32,7 +32,7 @@
           <rosparam>
             sensors:
             - arm_chain
-            - left
+            - kinect_rgb
           </rosparam>
           <param name="output_filename" type="string" value="result_step_2" />
         </group>
@@ -42,7 +42,7 @@
           <rosparam>
             sensors:
             - arm_chain
-            - left
+            - kinect_rgb
           </rosparam>
           <param name="output_filename" type="string" value="result_step_3" />
         </group>

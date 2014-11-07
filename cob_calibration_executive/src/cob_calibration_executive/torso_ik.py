@@ -6,11 +6,12 @@ import numpy as np
 
 class TorsoIK():
     """TorsoIK estimates an ik solution for the Torso"""
-    def __init__(self, parameter_name='/torso_controller/joints'):
+    def __init__(self, parameter_name='/torso_controller/joint_names'):
         self.parameter_name = parameter_name
         self.joint_names = rospy.get_param(self.parameter_name)
         self.get_torso_configuration()
         self.get_torso_limits()
+        #print self.get_torso_limits()
         self.compute_maximum_angles()
         self.camera_viewfield = 0
 
@@ -57,6 +58,8 @@ class TorsoIK():
         for index, angle in enumerate(ik):
             if self.limits[index][0] > ik[index] or \
                self.limits[index][1] < ik[index]:
+                #print self.get_torso_limits()
+                #print ik               
                 return False
         return True
 

@@ -128,21 +128,24 @@ class DataCollector():
         self._images[rospy.get_param("~cameras")["reference"]["name"]] = {}
         self._images_received[rospy.get_param(
             "~cameras")["reference"]["name"]] = False
-        for camera in rospy.get_param("~cameras")["further"]:
-            rospy.Subscriber(
-                camera["topic"],
-                Image,
-                self._callback_image,
-                camera["name"])
-            self._images[camera["name"]] = {}
-            self._images_received[camera["name"]] = True
+        try:
+            for camera in rospy.get_param("~cameras")["further"]:
+                rospy.Subscriber(
+                    camera["topic"],
+                    Image,
+                    self._callback_image,
+                    camera["name"])
+                self._images[camera["name"]] = {}
+                self._images_received[camera["name"]] = True
+        except:
+            print "only 1 camera avialable?"
         print "==> done with initialization"
 
     def _callback_image(self, image_raw, id):
         '''
         Callback function for left camera message filter
         '''
-        # print "DEBUG: callback left"
+        #print "DEBUG: callback left"
         self._images[id]["image"] = image_raw
         # if self._left_received == False:
             # print "--> left sample received (this only prints once!)"

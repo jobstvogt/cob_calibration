@@ -6,6 +6,7 @@ roslib.load_manifest(PKG)
 
 import rospy
 import tf
+import math
 from geometry_msgs.msg import PoseStamped
 
 
@@ -13,7 +14,7 @@ class ChessboardPositionBroadcast():
 
     def __init__(self):
         self.translation = (0, 0, 0)
-        self.rotation = (0, 0, 0, 1)
+        self.rotation = (0, 0, 0, 1) #tf.transformations.quaternion_from_euler(0, 0, -math.pi/2)
         self.base = "/base_link"
 
     def pose_callback(self, data):
@@ -46,6 +47,12 @@ class ChessboardPositionBroadcast():
                              rospy.Time.now(),
                              "/chessboard_position_link",
                              self.base)
+            
+            '''br.sendTransform((0,0,0),
+                             tf.transformations.quaternion_from_euler(0, 0, -math.pi/2),
+                             rospy.Time.now(),
+                             "/chessboard_position_link_rot",
+                             "/chessboard_position_link")'''
             rospy.sleep(0.05)
 
             br.sendTransform(

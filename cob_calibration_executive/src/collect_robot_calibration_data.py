@@ -94,11 +94,15 @@ def capture_loop(positions, sss, visible, capture_kinematics, capture_image):
         nh = sss.move("arm", joint_pos)
         while nh.get_state() == 0:
             rospy.sleep(0.2)
+
         if nh.get_state() != 3:
+            sss.recover("arm")
+            rospy.sleep(3)
             sss.move("torso", "home")
             nh = sss.move("arm", joint_pos)
             rospy.sleep(1)
             if nh.get_state() != 3:
+                sss.recover("arm")
                 continue
 
         print nh.get_state()
@@ -106,10 +110,19 @@ def capture_loop(positions, sss, visible, capture_kinematics, capture_image):
                          (0, 0, 0, 1),
                          rospy.Time.now(),
                          "/chessboard_center",
-                         "/sdh_palm_link")  # right upper corner
+                         "/pg70_gripper_link")  # right upper corner
+        '''br.sendTransform((0, -0.0013, 0.227),
+                         (0, 0, 0.70710678, 0.70710678),
+                         rospy.Time.now(),
+                         "/chessboard_center",
+                         "/pg70_gripper_link")  # right upper corner'''
 
-        sss.move("torso", [positions[index]['torso_position']])
+        nh = sss.move("torso", [positions[index]['torso_position']])
         sss.sleep(1)
+        if nh.get_state() != 3:
+            sss.recover("torso")
+            rospy.sleep(3)
+            continue
 
         visible_response = visible()
         if visible_response.every:
@@ -177,6 +190,7 @@ def main():
     print stiffnessM.joint_stiffness
     print jointstiffness_srv(stiffnessM)
     '''
+
     print "--> setup care-o-bot for capture"
     sss.move("head", "back")
 
