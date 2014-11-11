@@ -57,5 +57,5 @@ transforms:
   head_base_link: [0, 0, 0, 0, 0, 0]
   head_cam_reference_link: [1, 1, 1, 1, 1, 1]
   pg70_gripper_link: [0, 0, 0, 0, 0, 0]
-  torso_base_link: [0, 0, 0, 0, 0, 0]
+  torso_base_link: [1, 1, 1, 1, 1, 1]
   torso_upper_neck_tilt_link: [0, 0, 0, 0, 0, 0]

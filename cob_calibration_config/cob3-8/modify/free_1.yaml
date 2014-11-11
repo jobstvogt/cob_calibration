@@ -49,9 +49,9 @@ rectified_cams:
     f_shift: 0
 transforms:
   '***': [0, 0, 0, 0, 0, 0]
-  arm_0_link: [0, 0, 0, 0, 0, 0]
+  arm_0_link: [1, 1, 1, 1, 1, 1]
   arm_7_link: [0, 0, 0, 0, 0, 0]
-  arm_cb: [1, 1, 1, 0, 0, 0]
+  arm_cb: [0, 0, 0, 0, 0, 0]
   cam3d_link: [0, 0, 0, 0, 0, 0]
   head_axis_link: [0, 0, 0, 0, 0, 0]
   head_base_link: [0, 0, 0, 0, 0, 0]

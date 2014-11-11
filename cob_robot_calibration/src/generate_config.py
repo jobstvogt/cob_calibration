@@ -258,6 +258,7 @@ def __main__():
     # sss.move("head", "back")
     sss = simple_script_server()
     sss.move("head", "back")
+    sss.move("torso", "home")
     minimal_system = rospy.get_param('minimal_system', None)
     sensors_path = rospy.get_param('sensors', None)
     output_system = rospy.get_param('output_system', None)
