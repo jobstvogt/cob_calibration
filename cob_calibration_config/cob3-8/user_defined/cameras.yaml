@@ -3,6 +3,6 @@ reference:
        topic: /cam3d/rgb/image_raw
        file_prefix: kinect_
        calibration_data_file: kinect_rgb.yaml
-       frame_id: /cam3d_link
+       frame_id: /cam3d_rgb_optical_frame
        property: cam3d_
 

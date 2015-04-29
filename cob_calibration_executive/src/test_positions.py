@@ -73,10 +73,10 @@ def capture_loop(positions, sss):
     '''
     br = tf.TransformBroadcaster()
     for index in range(len(positions)):
-        if positions[index]['torso_position'] == [0, 0, 0]:
-            continue
+        #if positions[index]['torso_position'] == [0, 0, 0]:
+            #continue
         pre_signs=[a*b<0 for a,b in zip(positions[index]['joint_position'], positions[index-1]['joint_position'])]
-        if any(pre_signs[0:3]):
+        if any(pre_signs[0:2]):
             sss.move("arm","home")
         print "--> moving arm to sample #%s" % index
         pos = positions[index]
@@ -99,6 +99,8 @@ def capture_loop(positions, sss):
                          "/sdh_palm_link")  # right upper corner
 
         sss.move("torso", [positions[index]['torso_position']])
+        #rospy.sleep(2.0)
+        
 
 
 def main():

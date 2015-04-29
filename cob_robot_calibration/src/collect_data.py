@@ -259,9 +259,12 @@ class DataCollector():
         # --------------
         for name, image in self._images.iteritems():
             image = image["image"]
-	    #print image.header
-            cvImage = self.bridge.imgmsg_to_cv(image, "mono8")
-            imagecv = cv2util.cvmat2np(cvImage)
+
+
+            imagecv = self.bridge.imgmsg_to_cv2(image, "mono8")
+            #imagecv = cv2util.cvmat2np(cvImage)
+            
+            #print image.width
 
             try:
                 corners = checkerboard_detector.detect_image_points(
@@ -302,7 +305,8 @@ class DataCollector():
         # Fill robot_msg
         #----------------------
         robot_msg.M_chain = self.transformations.values()
-
+        #print robot_msg.M_chain
+        
         self._robot_measurement_pub.publish(robot_msg)
 
         return True

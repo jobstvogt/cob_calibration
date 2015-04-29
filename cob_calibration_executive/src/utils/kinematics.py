@@ -43,7 +43,7 @@ class getFK_Kinematics():
         print "- Try to get JointStates"
     
        
-        rospy.Subscriber("/arm_controller/state",JointTrajectoryControllerState,self.callback)
+        rospy.Subscriber("/arm/joint_trajectory_controller/state",JointTrajectoryControllerState,self.callback)
         i=0
         while not self.js_received:
             i+=1

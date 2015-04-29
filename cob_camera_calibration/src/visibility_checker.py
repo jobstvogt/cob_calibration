@@ -147,10 +147,11 @@ class VisibilityCheckerNode():
         for id in range(self.numCams):
             image = self.image[id]
 
-            cvImage = self.bridge.imgmsg_to_cv(image, 'rgb8')
-            img_raw = cv2util.cvmat2np(cvImage)
+            cvImage = self.bridge.imgmsg_to_cv2(image, 'rgb8')
+            #print cvImage
+            #img_raw = cv2util.cvmat2np(cvImage)
             try:
-                self.detector.detect_image_points( img_raw, False, True)
+                self.detector.detect_image_points( cvImage, False, True)
                 visible.append(True)
             except self.detector.NoPatternFoundException:
                 rospy.logwarn("No cb found")

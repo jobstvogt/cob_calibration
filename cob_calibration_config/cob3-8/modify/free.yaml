@@ -53,6 +53,8 @@ transforms:
   arm_7_link: [0, 0, 0, 0, 0, 0]
   arm_cb: [0, 0, 0, 0, 0, 0]
   cam3d_link: [0, 0, 0, 0, 0, 0]
+  cam3d_rgb_frame: [0, 0, 0, 0, 0, 0]
+  cam3d_rgb_optical_frame: [0, 0, 0, 0, 0, 0]
   head_axis_link: [0, 0, 0, 0, 0, 0]
   head_base_link: [0, 0, 0, 0, 0, 0]
   head_cam_reference_link: [0, 0, 0, 0, 0, 0]

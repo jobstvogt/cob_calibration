@@ -60,6 +60,7 @@ roslib.load_manifest(PKG)
 import rospy
 
 import cv
+import cv2
 from sensor_msgs.msg import Image
 from cob_calibration_msgs.srv import Capture, CaptureResponse
 from cv_bridge import CvBridge, CvBridgeError
@@ -148,10 +149,10 @@ class ImageCaptureNode():
         # save image
         cvImage = cv.CreateImage((1, 1), 1, 3)
         try:
-            cvImage = self.bridge.imgmsg_to_cv(rosImage, "bgr8")
+            cvImage = self.bridge.imgmsg_to_cv2(rosImage, "bgr8")
         except CvBridgeError, e:
             print e
-        cv.SaveImage(self.output_folder + '/' + filenamePrefix +
+        cv2.imwrite(self.output_folder + '/' + filenamePrefix +
                      '%05d.jpg' % counter, cvImage)
 
         # save header

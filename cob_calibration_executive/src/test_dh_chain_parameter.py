@@ -77,8 +77,8 @@ class DhHardwareTest:
         self.torso_js = JointState()
         self.arm_received = False
         self.torso_received = False
-        rospy.Subscriber("arm_controller/state", JointTrajectoryControllerState, self.callback_arm)
-        rospy.Subscriber("torso_controller/state", JointTrajectoryControllerState, self.callback_torso)
+        rospy.Subscriber("/arm/joint_trajectory_controller/state", JointTrajectoryControllerState, self.callback_arm)
+        rospy.Subscriber("/torso/joint_trajectory_controller/state", JointTrajectoryControllerState, self.callback_torso)
         print "::::::::::initialized::::::::::"
     def callback_arm(self, data):
         self.arm_js = data.actual

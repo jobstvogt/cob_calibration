@@ -71,7 +71,7 @@ def main():
     
     # get joint names for arm from parameter server
     joint_names = None
-    try: joint_names = rospy.get_param("arm_controller/joint_names") # real hardware
+    try: joint_names = rospy.get_param("arm/joint_names") # real hardware
     except KeyError: pass
     try: joint_names = rospy.get_param("arm_controller/joints")      # simulation
     except KeyError: pass

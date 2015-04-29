@@ -95,7 +95,7 @@ def getIk(arm_ik, (t, q), link, seed=None):
     joint_names = None
     try:
         joint_names = rospy.get_param(
-            "arm_controller/joint_names")  # real hardware
+            "arm/joint_names")  # real hardware
     except KeyError:
         pass
     
@@ -104,7 +104,7 @@ def getIk(arm_ik, (t, q), link, seed=None):
         return None
 
     msg = rospy.wait_for_message(
-        "/arm_controller/state", JointTrajectoryControllerState)
+        "/arm/joint_trajectory_controller/state", JointTrajectoryControllerState)
 
     if seed is None:
         seed = msg.actual.positions
@@ -169,7 +169,7 @@ def lookat(pose, torso_ik):
     joint_names = None
     try:
         joint_names = rospy.get_param(
-            "torso_controller/joint_names")  # real hardware
+            "torso/joint_names")  # real hardware
     except KeyError:
         pass
     
@@ -178,7 +178,7 @@ def lookat(pose, torso_ik):
         return None
 
     msg = rospy.wait_for_message(
-        "/torso_controller/state", JointTrajectoryControllerState)
+        "/torso/joint_trajectory_controller/state", JointTrajectoryControllerState)
 
 
     t=pose[0]
@@ -273,13 +273,13 @@ def main():
 
     # define cuboid for positions
     # limits from base_link frame
-    limits = {'x': (-0.4, -0.8),
-              'y': (-0.4, 0.4),
-              'z': (0.4, 1.4)}
+    limits = {'x': (-0.5, -0.8),
+              'y': (-0.6, 0.6),
+              'z': (0.6, 1.4)}
 
-    sample_density = {'x': 7,
+    sample_density = {'x': 6,
                       'y': 7,
-                      'z': 7}
+                      'z': 5}
 
     sample_positions = {'x': [],
                         'y': [],

@@ -36,7 +36,7 @@
           </rosparam>
           <param name="output_filename" type="string" value="result_step_2" />
         </group>
-         <group ns="step2">
+        <group ns="step2">
           <param name="free_params" textfile="$(find cob_calibration_config)/$(env ROBOT)/modify/free_2.yaml" />
           <param name="use_cov" type="bool" value="True" />
           <rosparam>
@@ -46,6 +46,27 @@
           </rosparam>
           <param name="output_filename" type="string" value="result_step_3" />
         </group>
+	<!--group ns="step3">
+          <param name="free_params" textfile="$(find cob_calibration_config)/$(env ROBOT)/modify/free_3.yaml" />
+          <param name="use_cov" type="bool" value="True" />
+          <rosparam>
+            sensors:
+            - arm_chain
+            - kinect_rgb
+          </rosparam>
+          <param name="output_filename" type="string" value="result_step_4" />
+        </group>
+	<group ns="step4">
+          <param name="free_params" textfile="$(find cob_calibration_config)/$(env ROBOT)/modify/free_4.yaml" />
+          <param name="use_cov" type="bool" value="True" />
+          <rosparam>
+            sensors:
+            - arm_chain
+            - kinect_rgb
+          </rosparam>
+          <param name="output_filename" type="string" value="result_step_5" />
+        </group-->
+
       </group>
     </group>
 

@@ -87,6 +87,9 @@ def capture_loop(positions, sss, visible, capture_kinematics, capture_image):
 
         print "--> moving arm to sample #%s" % index
         pos = positions[index]
+        pre_signs=[a*b<0 for a,b in zip(positions[index]['joint_position'], positions[index-1]['joint_position'])]
+        if any(pre_signs[0:2]):
+            sss.move("arm","home")
         #joint_pos = [[((a + (np.pi)) % (2 * np.pi)) - (np.pi)
                       #for a in positions[index]['joint_position']]]
         joint_pos = [[a for a in positions[index]['joint_position']]]
@@ -204,7 +207,7 @@ def main():
     print "==> capturing samples"
     start = rospy.Time.now()
     capture_loop(positions, sss, visible, capture_kinematics, capture_image)
-    sss.move("arm", "calibration")
+    #sss.move("arm", "calibration")
     print "finished after %s seconds" % (rospy.Time.now() - start).to_sec()
 
 
