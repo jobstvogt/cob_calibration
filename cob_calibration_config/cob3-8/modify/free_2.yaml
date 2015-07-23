@@ -10,35 +10,35 @@ dh_chains:
       xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_2_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_3_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_4_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_5_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_6_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: arm_7_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     gearing: [0, 0, 0, 0, 0, 0, 0]
   torso_chain:
     cov: [0, 0, 0]
     dh:
     - name: torso_lower_neck_tilt_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: torso_pan_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     - name: torso_upper_neck_tilt_joint
       type: rotz
-      xyzrpy: [0, 0, 0, 0, 0, 1]
+      xyzrpy: [0, 0, 0, 0, 0, 0]
     gearing: [0, 0, 0]
 rectified_cams:
   kinect_rgb:

@@ -115,10 +115,10 @@ class UpdateCobCalibrationUrdf():
                                               'offset_arm_4_ref',
                                               'offset_arm_5_ref',
                                               'offset_arm_6_ref',
-                                              'offset_arm_7_ref']
-                              #'torso_chain': ['offset_torso_lower_neck_tilt_ref',
-                              #                'offset_torso_pan_ref',
-                              #                'offset_torso_upper_neck_tilt_ref']
+                                              'offset_arm_7_ref'],
+                              'torso_chain': ['offset_torso_lower_neck_tilt_ref',
+                                              'offset_torso_pan_ref',
+                                              'offset_torso_upper_neck_tilt_ref']
                               }
 
     def run(self):
